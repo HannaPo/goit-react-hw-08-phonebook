@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectContacts } from 'redux/selectors';
-import { addContact } from 'redux/operations';
+import { selectContacts } from 'redux/contacts/selectors';
+import { addContact } from 'redux/contacts/operations';
 import { nanoid } from '@reduxjs/toolkit';
-import { Form, Label, Input, Button } from './ContactForm.styled';
+import { Form, Label, Input } from './ContactForm.styled';
+import { Button } from '@mui/material';
 
 const ContactForm = () => {
   const [name, setName] = useState('');
@@ -69,7 +70,7 @@ const ContactForm = () => {
           required
         />
       </Label>
-      <Button type="submit">Add contact</Button>
+      <Button variant="outlined" size="small"  type="submit">Add contact</Button>
     </Form>
   );
 };

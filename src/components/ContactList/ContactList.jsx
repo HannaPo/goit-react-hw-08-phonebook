@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { selectContacts, selectFilter } from 'redux/selectors';
-import { deleteContact } from 'redux/operations';
+import { selectContacts, selectFilter } from 'redux/contacts/selectors';
+import { deleteContact } from 'redux/contacts/operations';
 
 import { Wrapper, Item, Button } from './ContactList.styled';
 import { ReactComponent as DeleteIcon } from '../../icons/cross.svg';
@@ -16,9 +16,9 @@ const ContactList = () => {
 
   return (
     <Wrapper>
-      {filteredContacts.map(({ id, name, phone }) => (
+      {filteredContacts.map(({ id, name, number }) => (
         <Item key={id}>
-          {name}: {phone}
+          {name}: {number}
           <Button
             type="button"
             aria-label="Delete contact"
